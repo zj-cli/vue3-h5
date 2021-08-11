@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  margin: 0;
+}
+// 覆盖vant全局样式
+:root {
+  --van-cell-vertical-padding: 22px 32px 20px !important;
+  --van-cell-line-height: 60px !important;
+}
+.van-cell__title {
+  font-size: 30px;
+}
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+}
+/* 弹性布局公共样式 */
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+  &:extend(.align-start);
+}
+.flex-row-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  &:extend(.align-start);
+}
+.flex-row-reverse {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  &:extend(.align-start);
+}
+.flex-column {
+  display: flex;
+  flex-flow: column nowrap;
+  &:extend(.align-start);
+}
+.flex-column-wrap {
+  display: flex;
+  flex-flow: column nowrap;
+  &:extend(.align-start);
+}
+.flex-column-reverse {
+  display: flex;
+  flex-flow: column wrap;
+  &:extend(.align-start);
+}
+.flex-nowarp {
+  flex-wrap: nowrap;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.align-start {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.align-end {
+  align-items: flex-end;
+  align-content: flex-end;
+}
+.align-center {
+  align-items: center;
+  align-content: center;
+}
+.flex-item {
+  flex: 1;
+  line-height: 44px;
+  word-break: break-all;
+}
+.flex-label {
+  line-height: 44px;
+  color: #a0a0a0;
+  white-space: nowrap;
+}
+
+.card-list {
+  padding: 30px 33px 0;
+}
+.card-item {
+  background-color: #fff;
+  margin-bottom: 48px;
+  padding: 32px;
+  border-radius: 8px;
+}
+.shadow {
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.05);
+}
+.fixed-bottom-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 18px;
+  z-index: 9;
+}
+
+.generate-offset(150);
+
+.generate-offset(@n, @i: 0) when (@i =< @n) {
+  .margin-@{i} {
+    margin-top: (@i * 1px);
+    margin-right: (@i * 1px);
+    margin-bottom: (@i * 1px);
+    margin-left: (@i * 1px);
+  }
+  .margin-x-@{i} {
+    margin-left: (@i * 1px);
+    margin-right: (@i * 1px);
+  }
+  .margin-y-@{i} {
+    margin-top: (@i * 1px);
+    margin-bottom: (@i * 1px);
+  }
+  .margin-top-@{i} {
+    margin-top: (@i * 1px);
+  }
+
+  .margin-right-@{i} {
+    margin-right: (@i * 1px);
+  }
+
+  .margin-bottom-@{i} {
+    margin-bottom: (@i * 1px);
+  }
+
+  .margin-left-@{i} {
+    margin-left: (@i * 1px);
+  }
+
+  .padding-@{i} {
+    padding-top: (@i * 1px);
+    padding-right: (@i * 1px);
+    padding-bottom: (@i * 1px);
+    padding-left: (@i * 1px);
+  }
+  .padding-x-@{i} {
+    padding-left: (@i * 1px);
+    padding-right: (@i * 1px);
+  }
+  .padding-y-@{i} {
+    padding-top: (@i * 1px);
+    padding-bottom: (@i * 1px);
+  }
+  .padding-top-@{i} {
+    padding-top: (@i * 1px);
+  }
+
+  .padding-right-@{i} {
+    padding-right: (@i * 1px);
+  }
+
+  .padding-bottom-@{i} {
+    padding-bottom: (@i * 1px);
+  }
+
+  .padding-left-@{i} {
+    padding-left: (@i * 1px);
+  }
+
+  .generate-offset(@n, (@i + 1));
+}
+
+.generate-font-size(100);
+
+.generate-font-size(@n, @i: 1) when (@i =< @n) {
+  .font-@{i} {
+    font-size: (@i * 1px) !important;
+  }
+
+  .generate-font-size(@n, (@i + 1));
+}
+
+.text-info {
+  color: #666;
+}
+.text-grey {
+  color: #999;
+}
+.text-black {
+  color: #333;
+}
+.text-primary {
+  color: #4c85f8;
+}
+.text-danger {
+  color: #fa4646;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.font-bold {
+  font-weight: bold;
+}
+.no-wrap {
+  white-space: nowrap;
+}
+.my-cell {
+  padding: 16px 32px;
+  background-color: #fff;
+  margin-top: 20px;
+}
+
+.shade-btn {
+  width: 550px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 36px;
+  border: none;
+  background: linear-gradient(270deg, #546dde 0%, #59a1f2 100%);
+  box-shadow: 0px 0px 40px 0px rgba(111, 145, 255, 0.5);
+  &[disabled] {
+    background: #d7d7d7;
+    box-shadow: none;
+    opacity: 1;
+  }
+}
+
+.default-btn {
+  width: 550px;
+  margin: 0 auto;
+  font-size: 36px;
+  color: #4c85f8;
+  border-color: #4c85f8;
+  background-color: #fff;
+}
+
+[class*='van-hairline']::after {
+  border-color: #f9f9f9;
+}
+
+.van-field__body {
+  position: relative;
+  .input-cursor {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 16px;
+    width: 1px;
+    background-color: #000;
+    animation: light 1.2s ease-in-out infinite;
+  }
+  input {
+    caret-color: #aaa;
+  }
+}
+
+@keyframes light {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
