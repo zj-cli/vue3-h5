@@ -29,6 +29,7 @@ module.exports = {
     ],
     // eqeqeq: ['error', 'always'],
     'no-unused-vars': ['error'], // 禁止出现未使用过的变量
+    'no-extra-boolean-cast': 'off', // 禁止不必要的布尔转换
     'space-before-function-paren': 'off', // 方法名后是否保留空格
     'no-async-promise-executor': 'off', // promise上不能使用async
     'comma-dangle': ['error', 'never'], // 禁用拖尾逗号

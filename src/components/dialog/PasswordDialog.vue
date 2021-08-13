@@ -50,12 +50,17 @@ export default {
   emits: ['update:modelValue', 'ok'],
   setup(props, { emit }) {
     const password = ref()
+
     const bind = reactive({
-      open: () => open(),
-      cancel: () => cancel()
+      // 打开dialog时清空密码
+      open: () => (password.value = ''),
+      // 触发dialog隐藏
+      cancel: () => emit('update:modelValue', false)
     })
+
     // dialog显示时自动弹出键盘
     const showKeyboard = computed(() => props.modelValue)
+
     // 密码输入满6位时自动提交
     watch(password, val => {
       if (val.length === 6) {
@@ -63,10 +68,7 @@ export default {
         emit('ok', val.slice(0, 6))
       }
     })
-    // 打开dialog时清空密码
-    const open = () => (password.value = '')
-    // 触发dialog隐藏
-    const cancel = () => emit('update:modelValue', false)
+
     return {
       password,
       showKeyboard,

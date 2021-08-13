@@ -1,6 +1,6 @@
 import { onActivated, onBeforeUnmount, onDeactivated } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { closeWindow } from '@/libs/openWindow'
+import { closeWindow } from '@/utils/jump'
 import { ParseUrlParams } from '@/utils/utils'
 
 // 自定义页面返回方法
@@ -16,7 +16,7 @@ export default function pageBack(cb) {
     flag = true
 
     // 将外部调用back方法传参赋给cb
-    e.type !== 'popstate' && (cb = e)
+    e && e.type !== 'popstate' && (cb = e)
 
     // 有回调函数执行回调函数
     if (cb instanceof Function) {
