@@ -37,8 +37,7 @@ export default defineConfig({
     cors: true,
     proxy: {
       '/api': {
-        target: 'http://test-paymobile.95155.com',
-        // target: 'http://192.168.3.81:8080/pay-mobile-api',
+        target: 'xx',
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace('/api', '/')
@@ -47,6 +46,6 @@ export default defineConfig({
     overlay: false
   }
   // build: {
-  //   outDir: 'pay-wallet-h5'
+  //   outDir: ''
   // }
 })
